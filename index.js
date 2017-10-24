@@ -21,13 +21,19 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS,PUT");
   next();
 });
-
+ 
 let FiturKosRoute=require('./FiturKos/FiturKosRoute.js');
 app.use('/api', FiturKosRoute);
 let KosRoute=require('./Kos/KosRoute.js');
 app.use('/api', KosRoute);
 let GajiPenjagaRoute=require('./GajiPenjaga/GajiPenjagaRoute.js');
 app.use('/api', GajiPenjagaRoute);
+let KamarRoute=require('./Kamar/KamarRoute.js');
+app.use('/api', KamarRoute);
+let PenghuniRoute=require('./Penghuni/PenghuniRoute.js');
+app.use('/api', PenghuniRoute);
+let PenjagaRoute=require('./Penjaga/PenjagaRoute.js');
+app.use('/api', PenjagaRoute);
 // let provinsiRoute=require('./provinsi/provinsiRoute.js');
 // app.use('/api',provinsiRoute);
 require("./koneksidb/koneksidb")
