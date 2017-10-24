@@ -1,0 +1,16 @@
+GajiPenjaga=require('./GajiPenjagaModel.js');
+module.exports.getGajiPenjaga=function(callback,limit){
+    GajiPenjaga.find(callback).limit(limit);
+}
+module.exports.createGajiPenjaga=function(akses,callback){
+    GajiPenjaga.create(akses,callback);
+}
+module.exports.removeGajiPenjaga=function(_id,callback){
+    GajiPenjaga.findByIdAndRemove(_id,callback);
+}
+module.exports.updateGajiPenjaga=function(_id,akses,callback){
+    GajiPenjaga.findByIdAndUpdate(_id,akses,callback);
+}
+module.exports.getGajiPenjagaById=function(id,callback){
+    GajiPenjaga.findById(id,callback);
+}
