@@ -12,6 +12,7 @@ let app=expres();
 
 
 //sintak token
+ global.config = require('./config/config');
  let jwt    = require('jsonwebtoken');
  let jwt_secret = "shhh";
  //sintak token
