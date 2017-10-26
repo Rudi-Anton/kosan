@@ -30,7 +30,7 @@ app.use(function(req, res, next) {
   next();
 });
  
-let LoginRoute=require('./Login/LoginRoute.js');
+let LoginRoute=require('./login/loginRoute.js');
 app.use('/api', LoginRoute);
 let FiturKosRoute=require('./FiturKos/FiturKosRoute.js');
 app.use('/api',verifyToken, FiturKosRoute);
