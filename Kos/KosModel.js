@@ -2,6 +2,7 @@ let mong = require('mongoose');
 let kos = mong.Schema({
 	KdKamar: String,
     KdKos: String,
+    NamaKos:String,
     KategoriKos: String,
     Location: Array,
     Pendapatan: Number
