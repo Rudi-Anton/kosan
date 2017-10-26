@@ -1,18 +1,26 @@
+//Express.js adalah framework untuk node.js. 
+//Kelebihan:
+// Dukungan pembuatan middleware (middleware adalah jembatan penghubung database dengan aplikasi)
+// Dukungan terhadap berbagai HTTP verb seperti POST, GET, PUT, DELETE, OPTION, HEAD, dan lainnya
+// Sudah terpasang template engine Jade
+// manajemen file statik seperti CSS dan Javascript
+// Sangat bebas untuk dikostumisasi
 let expres = require('express');
 let mong = require('mongoose');
 let bodyParser = require('body-parser');
-let app=expres();
+let app=expres(); 
+
 
 //sintak token
- //let jwt    = require('jsonwebtoken');
- //let jwt_secret = "shhh";
+ let jwt    = require('jsonwebtoken');
+ let jwt_secret = "shhh";
  //sintak token
 
 app.use(bodyParser.json());
 app.set('port', (process.env.PORT || 8889));
 
 //sintak token
-//let verifyToken = require('./middleware/verifyToken');
+let verifyToken = require('./middleware/verifyToken');
 //sintak token
 
 app.use(function(req, res, next) {
@@ -22,8 +30,10 @@ app.use(function(req, res, next) {
   next();
 });
  
+let LoginRoute=require('./Login/LoginRoute.js');
+app.use('/api', LoginRoute);
 let FiturKosRoute=require('./FiturKos/FiturKosRoute.js');
-app.use('/api', FiturKosRoute);
+app.use('/api',verifyToken, FiturKosRoute);
 let KosRoute=require('./Kos/KosRoute.js');
 app.use('/api', KosRoute);
 let GajiPenjagaRoute=require('./GajiPenjaga/GajiPenjagaRoute.js');
