@@ -7,6 +7,8 @@ let kos = mong.Schema({
     NamaKos: String,
     JmlKamar:Number,
     Location: Array,
+    Latitude: Number,
+    Longitude: Number,
     Pendapatan: Number
 });
 let Kos = module.exports = mong.model("Kos", kos, "Kos");
