@@ -6,7 +6,7 @@ let kos = mong.Schema({
     KategoriKos: String,
     NamaKos: String,
     JmlKamar:Number,
-    Location: Array,
+    Location: String,
     Latitude: Number,
     Longitude: Number,
     Pendapatan: Number
