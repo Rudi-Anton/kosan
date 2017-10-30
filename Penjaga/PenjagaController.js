@@ -1,5 +1,17 @@
 Penjaga = require('./PenjagaModel.js');
-module.exports.getPenjaga = function (callback, limit) {
+module.exports.getPenjaga = function (callback) {
+    Penjaga.find(callback);
+}
+module.exports.createPenjaga = function (akses, callback) {
+    Penjaga.create(akses, callback);
+}
+module.exports.removePenjaga = function (_id, callback) {
+    Penjaga.findByIdAndRemove(_id, callback);
+}
+module.exports.updatePenjaga = function (_id, akses, callback) {
+    Penjaga.findByIdAndUpdate(_id, akses, callback);
+}
+module.exports.getPenjagaById = function (id, callback) {
     Penjaga.aggregate([
         {
             "$lookup": {
@@ -16,18 +28,16 @@ module.exports.getPenjaga = function (callback, limit) {
                 foreignField: "infoKos.KategoriKos",
                 as: "infoKategoriKos"
             }
-        }],callback);
-
-}
-module.exports.createPenjaga = function (akses, callback) {
-    Penjaga.create(akses, callback);
-}
-module.exports.removePenjaga = function (_id, callback) {
-    Penjaga.findByIdAndRemove(_id, callback);
-}
-module.exports.updatePenjaga = function (_id, akses, callback) {
-    Penjaga.findByIdAndUpdate(_id, akses, callback);
-}
-module.exports.getPenjagaById = function (id, callback) {
-    Penjaga.findById(id, callback);
+        },
+        {
+            $project: {
+                _id: id,
+                NamaPenjaga: "$NamaPenjaga",
+                KategoriKos: "$infoKategoriKos.Gaji",
+            }
+        }, {
+            $match: {
+                _id: id
+            }
+        }], callback)
 }
