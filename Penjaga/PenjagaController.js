@@ -32,11 +32,13 @@ module.exports.getPenjagaById = function (id, callback) {
         {
             $project: {
                 _id: id,
-                KdPenjaga:"$KdPenjaga",
+                KdPenjaga: "$KdPenjaga",
                 NamaPenjaga: "$NamaPenjaga",
-                KdKos:"$KdKos",
-                KategoriKos:"$infoKos.KategoriKos",
-                Gaji: "$infoKategoriKos.Gaji",
+                KdKos: "$KdKos",
+            }
+        }, {
+            $match: {
+                _id: id
             }
         }], callback)
 }
