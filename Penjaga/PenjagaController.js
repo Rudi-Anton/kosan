@@ -13,7 +13,7 @@ module.exports.getPenjaga = function (callback, limit) {
             "$lookup": {
                 from: "GajiPenjaga",
                 localField: "KategoriKos",
-                foreignField: "KategoriKos",
+                foreignField: "infoKos.KategoriKos",
                 as: "infoKategoriKos"
             }
         }])
