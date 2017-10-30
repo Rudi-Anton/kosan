@@ -16,7 +16,8 @@ module.exports.getPenjaga = function (callback, limit) {
                 foreignField: "infoKos.KategoriKos",
                 as: "infoKategoriKos"
             }
-        }])
+        }],callback);
+
 }
 module.exports.createPenjaga = function (akses, callback) {
     Penjaga.create(akses, callback);
