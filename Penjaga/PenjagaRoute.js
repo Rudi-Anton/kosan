@@ -37,9 +37,9 @@ route.delete('/penjaga/:_id', function (req, res) {
      });
  });
  
- route.get('/penjaga/kategorikos/:KategoriKos', function (req, res) {
-     let KategoriKos = req.params.KategoriKos;
-     PenjagaController.getPenjagaByKategoriKos(KategoriKos, function (error, respon) {
+ route.get('/penjaga/kos/:kos', function (req, res) {
+     let kos = req.params.kos;
+     PenjagaController.getPenjagaBykos(kos, function (error, respon) {
         if (error) {
             throw error;
         }
