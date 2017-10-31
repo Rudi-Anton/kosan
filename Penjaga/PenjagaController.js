@@ -18,10 +18,10 @@ module.exports.getPenjagaByKategoriKos = function (KategoriKos, callback) {
     Penjaga.aggregate([
         {
             "$lookup": {
-                from: "GajiPenjaga",
-                localField: "KategoriKos",
-                foreignField: "KategoriKos",
-                as: "infoGaji"
+                from: "Kos",
+                localField: "KdKos",
+                foreignField: "KdKos",
+                as: "infoKos"
             }
         }, {
             $match: {
