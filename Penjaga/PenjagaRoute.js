@@ -36,6 +36,17 @@ route.delete('/penjaga/:_id', function (req, res) {
          res.json(respon);
      });
  });
+ 
+ route.get('/penjaga/kategorikos/:KategoriKos', function (req, res) {
+     let KategoriKos = req.params.KategoriKos;
+     PenjagaController.getPenjagaByKategoriKos(KategoriKos, function (error, respon) {
+        if (error) {
+            throw error;
+        }
+        res.json(respon);
+    });
+});
+ 
  route.get('/penjaga/:_id', function (req, res) {
      let id = req.params._id;
      PenjagaController.getPenjagaById(id, function (error, respon) {
@@ -45,4 +56,5 @@ route.delete('/penjaga/:_id', function (req, res) {
         res.json(respon);
     });
 });
+
 module.exports = route;

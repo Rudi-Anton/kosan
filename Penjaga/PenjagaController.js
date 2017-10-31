@@ -11,34 +11,21 @@ module.exports.removePenjaga = function (_id, callback) {
 module.exports.updatePenjaga = function (_id, akses, callback) {
     Penjaga.findByIdAndUpdate(_id, akses, callback);
 }
-module.exports.getPenjagaById = function (id, callback) {
+module.exports.getPenjagaById=function(id,callback){
+    Penjaga.findById(id,callback);
+}
+module.exports.getPenjagaByKategoriKos = function (KategoriKos, callback) {
     Penjaga.aggregate([
         {
             "$lookup": {
-                from: "Kos",
-                localField: "KdKos",
-                foreignField: "KdKos",
-                as: "infoKos"
-            }
-        },
-        {
-            "$lookup": {
-                from: "GajiPenjaga",
+                from: "GajiKos",
                 localField: "KategoriKos",
-                foreignField: "infoKos.KategoriKos",
-                as: "infoKategoriKos"
-            }
-        },
-        {
-            $project: {
-                _id: id,
-                KdPenjaga: "$KdPenjaga",
-                NamaPenjaga: "$NamaPenjaga",
-                KdKos: "$KdKos",
+                foreignField: "KategoriKos",
+                as: "infoKos"
             }
         }, {
             $match: {
-                _id: id
+                "KategoriKos": KategoriKos
             }
         }], callback)
 }
