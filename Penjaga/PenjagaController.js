@@ -14,7 +14,7 @@ module.exports.updatePenjaga = function (_id, akses, callback) {
 module.exports.getPenjagaById=function(id,callback){
     Penjaga.findById(id,callback);
 }
-module.exports.getPenjagaBykos = function (kos, callback) {
+module.exports.getPenjagaBykos = function (id, kos, callback) {
     Penjaga.aggregate([
         {
             "$lookup": {
