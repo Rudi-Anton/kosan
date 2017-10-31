@@ -37,10 +37,10 @@ route.delete('/penjaga/:_id', function (req, res) {
      });
  });
  
- route.get('/penjaga/kos/:id/:kos', function (req, res) {
-     let id = req.params.id;
+ route.get('/penjaga/kos/:penjaga/:kos', function (req, res) {
+     let penjaga = req.params.penjaga;
      let kos = req.params.kos;
-     PenjagaController.getPenjagaBykos(id,kos, function (error, respon) {
+     PenjagaController.getPenjagaBykos(penjaga,kos, function (error, respon) {
         if (error) {
             throw error;
         }

@@ -14,7 +14,7 @@ module.exports.updatePenjaga = function (_id, akses, callback) {
 module.exports.getPenjagaById=function(id,callback){
     Penjaga.findById(id,callback);
 }
-module.exports.getPenjagaBykos = function (id, kos, callback) {
+module.exports.getPenjagaBykos = function (penjaga, kos, callback) {
     Penjaga.aggregate([
         {
             "$lookup": {
@@ -25,7 +25,8 @@ module.exports.getPenjagaBykos = function (id, kos, callback) {
             }
         }, {
             $match: {
-                "KdKos": kos
+                "KdKos": kos,
+                "KdPenjaga":penjaga
             }
         }], callback)
 }
