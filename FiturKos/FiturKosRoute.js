@@ -10,6 +10,26 @@ route.get('/fiturkos', function (req, res) {
         res.json(respon);
     });
 });
+route.get('/fiturkos/jumlah/:KdKos', function (req, res) {
+     let KdKos = req.params.KdKos;
+    FiturKosController.getJumlah(KdKos,function (error, respon) {
+        if (error) {
+            throw error;
+        }
+        res.json(respon);
+    });
+});
+
+route.get('/fiturkos/kode/:kode', function (req, res) {
+     let kode = req.params.kode;
+     FiturKosController.getFiturKosByKode(kode, function (error, respon) {
+        if (error) {
+            throw error;
+        }
+        res.json(respon);
+    });
+});
+
 route.post('/fiturkos', function (req, res) {
     let akses = req.body;
     FiturKosController.createFiturKos(akses,function (error, respon) {

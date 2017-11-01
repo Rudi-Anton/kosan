@@ -2,6 +2,9 @@ Penjaga = require('./PenjagaModel.js');
 module.exports.getPenjaga = function (callback) {
     Penjaga.find(callback);
 }
+module.exports.getPenjagaByKode = function (kode, callback) {
+    Penjaga.find({ KdPenjaga: kode }, callback);
+}
 module.exports.createPenjaga = function (akses, callback) {
     Penjaga.create(akses, callback);
 }
@@ -11,10 +14,10 @@ module.exports.removePenjaga = function (_id, callback) {
 module.exports.updatePenjaga = function (_id, akses, callback) {
     Penjaga.findByIdAndUpdate(_id, akses, callback);
 }
-module.exports.getPenjagaById=function(id,callback){
-    Penjaga.findById(id,callback);
+module.exports.getPenjagaById = function (id, callback) {
+    Penjaga.findById(id, callback);
 }
-module.exports.getPenjagaBykos = function (kos, callback) {
+module.exports.getPenjagaBykos = function (kdpenjaga, kos, callback) {
     Penjaga.aggregate([
         {
             "$lookup": {
@@ -25,7 +28,8 @@ module.exports.getPenjagaBykos = function (kos, callback) {
             }
         }, {
             $match: {
-                "KdKos": kos
+                "KdKos": kos,
+                "KdPenjaga": kdpenjaga
             }
         }], callback)
 }

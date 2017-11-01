@@ -27,6 +27,16 @@ route.delete('/kos/:_id', function (req, res) {
         res.json(respon);
     });
 });
+route.put('/kos/kode/:kdkos', function (req, res) {
+     let akses = req.body;
+     KosController.updateByKdKos(req.params.kdkos,akses,function (error, respon) {
+         if (error) {
+             throw error;
+         }
+         res.json(respon);
+     });
+ });
+
  route.put('/kos/:_id', function (req, res) {
      let akses = req.body;
      KosController.updateKos(req.params._id,akses,function (error, respon) {
@@ -39,6 +49,15 @@ route.delete('/kos/:_id', function (req, res) {
  route.get('/kos/:_id', function (req, res) {
      let id = req.params._id;
      KosController.getKosById(id, function (error, respon) {
+        if (error) {
+            throw error;
+        }
+        res.json(respon);
+    });
+});
+route.get('/kos/kode/:kode', function (req, res) {
+     let kode = req.params.kode;
+     KosController.getKosByKode(kode, function (error, respon) {
         if (error) {
             throw error;
         }

@@ -18,7 +18,7 @@ let app=expres();
  //sintak token
 
 app.use(bodyParser.json());
-app.set('port', (process.env.PORT || 8889));
+app.set('port', (8889));
 
 //sintak token
 let verifyToken = require('./middleware/verifyToken');
@@ -34,7 +34,7 @@ app.use(function(req, res, next) {
 let LoginRoute=require('./login/loginRoute.js');
 app.use('/api', LoginRoute);
 let FiturKosRoute=require('./FiturKos/FiturKosRoute.js');
-app.use('/api',verifyToken, FiturKosRoute);
+app.use('/api', FiturKosRoute);
 let KosRoute=require('./Kos/KosRoute.js');
 app.use('/api', KosRoute);
 let GajiPenjagaRoute=require('./GajiPenjaga/GajiPenjagaRoute.js');

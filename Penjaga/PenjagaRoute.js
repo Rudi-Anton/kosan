@@ -37,9 +37,10 @@ route.delete('/penjaga/:_id', function (req, res) {
      });
  });
  
- route.get('/penjaga/kos/:kos', function (req, res) {
+ route.get('/penjaga/kos/:kdpenjaga/:kos', function (req, res) {
+     let kdpenjaga = req.params.kdpenjaga;
      let kos = req.params.kos;
-     PenjagaController.getPenjagaBykos(kos, function (error, respon) {
+     PenjagaController.getPenjagaBykos(kdpenjaga,kos, function (error, respon) {
         if (error) {
             throw error;
         }
@@ -47,6 +48,16 @@ route.delete('/penjaga/:_id', function (req, res) {
     });
 });
  
+ route.get('/penjaga/kode/:kode', function (req, res) {
+     let kode = req.params.kode;
+     PenjagaController.getPenjagaByKode(kode, function (error, respon) {
+        if (error) {
+            throw error;
+        }
+        res.json(respon);
+    });
+});
+
  route.get('/penjaga/:_id', function (req, res) {
      let id = req.params._id;
      PenjagaController.getPenjagaById(id, function (error, respon) {
