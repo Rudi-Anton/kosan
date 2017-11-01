@@ -11,9 +11,9 @@ module.exports.removeKos=function(_id,callback){
 module.exports.updateKos=function(_id,akses,callback){
     Kos.findByIdAndUpdate(_id,akses,callback);
 }
-module.exports.updateByKdKos=function(KdKos,akses,callback){
-    Kos.findByIdAndUpdate(kdkos,akses,callback);
-}
+// module.exports.updateByKdKos=function(KdKos,akses,callback){
+//     Kos.findByIdAndUpdate(KdKos,akses,callback);
+// }
 module.exports.getKosById=function(id,callback){
     Kos.findById(id,callback);
 }

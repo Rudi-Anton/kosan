@@ -27,15 +27,15 @@ route.delete('/kos/:_id', function (req, res) {
         res.json(respon);
     });
 });
-route.put('/kos/kode/:kdkos', function (req, res) {
-     let akses = req.body;
-     KosController.updateByKdKos(req.params.kdkos,akses,function (error, respon) {
-         if (error) {
-             throw error;
-         }
-         res.json(respon);
-     });
- });
+// route.put('/kos/kode/:KdKos', function (req, res) {
+//      let akses = req.body;
+//      KosController.updateByKdKos(req.params.KdKos,akses,function (error, respon) {
+//          if (error) {
+//              throw error;
+//          }
+//          res.json(respon);
+//      });
+//  });
 
  route.put('/kos/:_id', function (req, res) {
      let akses = req.body;
