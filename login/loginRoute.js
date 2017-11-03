@@ -27,7 +27,7 @@ route.post('/login/authenticate', function (req, res) {
             return res.status(404).json({ 'message': 'Login not found!' });
         }
         let token = jwt.sign(login, global.config.jwt_secret, {
-            expiresIn: 1440 // expires in 1 hour
+            expiresIn: 1440000 // expires in 1 hour
         });
         res.json({ error: false, token: token });
     })
