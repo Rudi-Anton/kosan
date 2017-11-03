@@ -3,7 +3,7 @@ module.exports.getPenjaga = function (callback) {
     Penjaga.find(callback);
 }
 module.exports.getPenjagaByKode = function (kode, callback) {
-    Penjaga.find({ KdPenjaga: kode }, callback);
+    Penjaga.findOne({ KdPenjaga: kode }, callback);
 }
 module.exports.createPenjaga = function (akses, callback) {
     Penjaga.create(akses, callback);
