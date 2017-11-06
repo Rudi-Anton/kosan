@@ -11,6 +11,16 @@ route.get('/penghuni', function (req, res) {
     });
 });
 
+route.get('/penghuni/kode/:kode', function(req,res){
+    let kode = req.params.kode;
+    PenghuniController.getPenghuniByKode(kode, function(error,respon){
+        if(error){
+            throw error;
+        }
+        res.json(respon);
+    })
+})
+
 route.post('/penghuni', function (req, res) {
     let akses = req.body;
     PenghuniController.createPenghuni(akses,function (error, respon) {
