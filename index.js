@@ -48,7 +48,7 @@ app.use('/api', PenjagaRoute);
 // let provinsiRoute=require('./provinsi/provinsiRoute.js');
 // app.use('/api',provinsiRoute);
 require("./koneksidb/koneksidb")
-//mong.connect('mongodb://dbpelatihan:Sayangorangtua20@ds113785.mlab.com:13785/dbpelatihan');
+//mong.connect('mongodb://dbkos:Sayangorangtua20@ds113785.mlab.com:13785/dbpelatihan');
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));

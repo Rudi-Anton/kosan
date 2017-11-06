@@ -2,7 +2,7 @@ let mong = require('mongoose');
 let penjaga = mong.Schema({
 	KdPenjaga: String,
     KdKos: String,
-    KategoriKos:String,
+    //KategoriKos:String,
     NamaPenjaga: String,
     Alamat:String,
     NoHp:String,
