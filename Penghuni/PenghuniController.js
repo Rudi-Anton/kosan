@@ -3,10 +3,6 @@ module.exports.getPenghuni=function(callback,limit){
     Penghuni.find(callback).limit(limit);
 }
 
-module.exports.getPenghuniByKode = function(kode, callback){
-    Penghuni.find({KdKos: kode}, callback);
-}
-
 module.exports.createPenghuni=function(akses,callback){
     Penghuni.create(akses,callback);
 }

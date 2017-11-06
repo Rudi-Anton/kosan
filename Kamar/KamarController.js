@@ -5,6 +5,11 @@ module.exports.getKamar=function(callback,limit){
 module.exports.createKamar=function(akses,callback){
     Kamar.create(akses,callback);
 }
+
+module.exports.getKamarByKode = function(kode, callback){
+    Kamar.find({KdKos: kode}, callback);
+}
+
 module.exports.removeKamar=function(_id,callback){
     Kamar.findByIdAndRemove(_id,callback);
 }

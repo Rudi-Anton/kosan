@@ -10,6 +10,18 @@ route.get('/kamar', function (req, res) {
         res.json(respon);
     });
 });
+
+
+route.get('/kamar/kode/:kode', function(req,res){
+    let kode = req.params.kode;
+    KamarController.getKamarByKode(kode, function(error,respon){
+        if(error){
+            throw error;
+        }
+        res.json(respon);
+    })
+})
+
 route.post('/kamar', function (req, res) {
     let akses = req.body;
     KamarController.createKamar(akses,function (error, respon) {
